@@ -23,12 +23,18 @@ app.get('/', AuthService.checkIfAuthenticated, (req, res) => {
   res.send('Hello World');
 })
 
-
-app.listen(6500, () => {
-  Db.connect()
+Db.connect()
   .then(() => console.log('Connection successfull!'))
   .catch((err) => console.log(`Error found! ${err}`));
 
+app.listen(6500, () => {
+  
+
   console.log('Started Listening!');
 });
-module.exports.handler = serverless(app);
+
+module.exports = {
+  handler: serverless(app)
+};
+
+

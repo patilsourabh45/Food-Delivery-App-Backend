@@ -9,8 +9,8 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  SignupService.createSignup(req.query.name,
-  req.query.email, req.query.phonenumber, req.query.password)
+  SignupService.createSignup(req.query.name, req.query.email, 
+   req.query.phonenumber,req.query.password)
     .then(() => {
       console.log('Signup successfully!')
       res.send('SignupUser created successfully!');
